@@ -1,0 +1,15 @@
+services:
+  kc:
+    image: quay.io/keycloak/keycloak:24.0.3
+    ports:
+      - 8080:8080
+    environment:
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: password
+    entrypoint:
+      - /opt/keycloak/bin/kc.sh
+      - start-dev
+  redis:
+    image: redis
+    ports:
+      - 6379:6379
